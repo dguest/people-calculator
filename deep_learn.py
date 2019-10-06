@@ -50,7 +50,7 @@ def run():
             ar[n,:] = emb
             targ[n,0] = len(samp)
             if n + 1 == n_samples:
-                yield ar.copy(), targ.copy()
+                yield ar, targ
 
 
     model.fit_generator(make_arrays(name_generator),
