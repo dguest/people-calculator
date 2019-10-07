@@ -2,11 +2,11 @@
 
 from keras.models import load_model
 from sys import argv
-from deep_learn import embed, people
+from deep_learn import index_participents, people
 
 model = load_model(argv[1])
 
-test_arr = embed(people)
+test_arr = index_participents(people)
 pretty_test_arr = test_arr[0,:]
 print(f'testing with {people} -> {pretty_test_arr}')
 
