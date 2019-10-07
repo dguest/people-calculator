@@ -2,7 +2,7 @@
 
 from keras.models import load_model
 from sys import argv
-from deep_learn import embed, people
+from deep_learn import index_participents, people
 from random import sample
 import numpy as np
 from pathlib import PosixPath as Path
@@ -19,7 +19,7 @@ for n in range(len(people)*2):
     randos = sample(people, min(n,len(people)))
     if n > len(people):
         randos += sample(people, n - len(people))
-    test_arr = embed(randos)
+    test_arr = index_participents(randos)
     predicted = model.predict(test_arr)
     x.append(n)
     y.append(predicted.flatten())
@@ -29,6 +29,9 @@ Canvas(fig)
 plot = fig.add_subplot(111)
 plot.set_xlabel('ground truth')
 plot.set_ylabel('model')
+plot.grid()
+for ax in [plot.xaxis, plot.yaxis]:
+    ax.set_ticks(np.arange(0,20))
 plot.plot(x,y, '.')
 plot.axvspan(10,20, color='red', alpha=0.5)
 
