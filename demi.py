@@ -11,6 +11,7 @@ people = {
     'Brendan',
     'Bing',
     'Sam',
+    'Will',
 }
 
 print(f'we have {len(people)} people')
